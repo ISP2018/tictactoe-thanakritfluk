@@ -49,3 +49,11 @@ Write JUnit tests for the TicTacToe class to verify it works for 4x4 game.
 ### 4. Flash News!
 
 To be announced...
+
+### 5. What to Submit
+
+When the new 4x4 TicTacToe is working, and has incorporated (merged) the bug fix from Item 4:
+
+1. create a JAR file and add it do the `dist/` directory
+2. merge the branch into master
+3. create an annotated tag "VER_2.0" for this release
