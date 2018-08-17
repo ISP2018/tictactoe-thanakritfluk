@@ -39,7 +39,7 @@ public class Board extends GridPane  {
 				board[row][col] = cell;
 				super.add( cell, col, row );
 				Bounds b = cell.getBoundsInParent();
-//				System.out.printf("Cell [%d,%d] has bounds x=[%.1f,%.1f] y=[%.1f,%.1f]\n", 
+//				System.out.printf("Cell [%d,%d] has bounds x=[%.1f,%.1f] y=[%.1f,%.1f]\n",
 //						row, col,
 //						b.getMinX(), b.getMaxX(), b.getMinY(), b.getMaxY() );
 			}
