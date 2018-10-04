@@ -12,7 +12,7 @@
 	<!-- location of src and output (build) directories. -->
     <!-- TODO define properties for these. -->
 	<property name="src.dir" location="src"/>
-	<property name="build.dir" location="build.xml"/>
+	<property name="build.dir" location="build"/>
 	<property name="dist.dir" location="dist"/>
 	<property name="test.src.dir" location="test" />
 	<property name="test.build.dir" location="bin/test" />
@@ -60,7 +60,12 @@
 
 	<!-- compile the source code -->
 	<target name="compile" depends="init" description="Compile source code" >
-		<javac srcdir="src" destdir="bin" includeantruntime="false" />
+		<javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" />
+		<copy todir="${build.dir}">
+			<fileset dir="${src.dir}">
+				<include name="**/*.fxml" />
+			</fileset>
+		</copy>
 	</target>
 
 	<!-- compile the test code -->
@@ -83,6 +88,17 @@
 				<fileset dir="bin/test" includes="**/*Test.class" />
 			</batchtest>
 		</junit>
+	</target>
+
+	<target name="jar" depends="compile"
+			description="Create runnable JAR file of project">
+		<jar destfile="dist/TicTacToe.jar"
+			 basedir="${build.dir}">
+			<manifest>
+				<attribute name = "Main-Class"
+							value = "tictactoe.Main"/>
+			</manifest>
+		</jar>
 	</target>
 
 </project>
